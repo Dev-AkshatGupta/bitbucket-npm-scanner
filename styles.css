@@ -1,0 +1,42 @@
+.npm-version-indicator {
+  margin-left: 8px;
+  display: inline-block;
+}
+
+.npm-latest-version {
+  background-color: #28a745;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: help;
+  transition: background-color 0.2s ease;
+}
+
+.npm-latest-version:hover {
+  background-color: #218838;
+}
+
+/* Ensure indicators don't break diff layout */
+[data-testid="diff-line-content"] {
+  position: relative;
+}
+
+/* Style for different diff line types */
+.npm-version-indicator {
+  position: relative;
+  z-index: 10;
+}
+
+/* Make sure indicators are visible on different backgrounds */
+tr[data-testid="diff-line-added"] .npm-latest-version,
+tr[data-testid="diff-line-modified"] .npm-latest-version {
+  background-color: #28a745;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+tr[data-testid="diff-line-removed"] .npm-latest-version {
+  background-color: #6c757d;
+}
